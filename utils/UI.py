@@ -1,5 +1,6 @@
 import pygame
 from utils.mouse import Mouse
+from utils.scaling import Scaler
 
 UI = pygame.image.load("assets/UI.png")
 

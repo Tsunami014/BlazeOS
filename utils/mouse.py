@@ -1,3 +1,4 @@
+from utils.scaling import Scaler
 import pygame
 pygame.mouse.set_visible(False)
 
@@ -15,7 +16,7 @@ class Mouse:
 
     @classmethod
     def MousePos(cls):
-        return pygame.mouse.get_pos()
+        return Scaler.scalePos(pygame.mouse.get_pos())
 
     @classmethod
     def changeMouseType(cls, new_type):

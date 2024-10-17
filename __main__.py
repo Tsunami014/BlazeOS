@@ -4,12 +4,12 @@ import pygame
 pygame.init()
 
 from utils.mouse import Mouse
+from utils.scaling import Scaler
 from utils.UI import UIBUTTONS
 
-screen = pygame.display.set_mode((800, 600))
+screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
+win = pygame.Surface((100, 100))
 pygame.display.set_caption("BlazeOS")
-
-mouse = Mouse()
 
 btn = UIBUTTONS['OK'].copy()
 
@@ -21,12 +21,17 @@ while run:
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             run = False
 
-    screen.fill((255, 255, 255))
+    screen.fill(0)
+    win.fill((255, 255, 255))
 
-    mouse.changeMouseType('Normal')
+    Mouse.changeMouseType('Normal')
 
-    btn.draw(screen, 400, 300)
+    btn.draw(win, 50, 50)
 
-    mouse.update(screen)
+    Mouse.update(win)
+
+    scaled, leftOver = Scaler.scale(win)
+    Scaler.OFFSET = [leftOver[0]//2, leftOver[1]//2]
+    screen.blit(scaled, Scaler.OFFSET)
 
     pygame.display.flip()
