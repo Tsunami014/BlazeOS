@@ -1,0 +1,23 @@
+{
+    "Large": {
+        "fname": "large.font.png",
+        "chars": " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
+        "replace": {}
+    },
+    "Medium": {
+        "fname": "medium.font.png",
+        "chars": " !\"#$%`'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_'abcdefghijklmnopqrstuvwxyz{|}~",
+        "replace": {
+            "`": "'",
+            ":D": "`"
+        }
+    },
+    "Small": {
+        "fname": "small.font.png",
+        "chars": " !\"#$%`'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_'abcdefghijklmnopqrstuvwxyz{|}~",
+        "replace": {
+            "`": "'",
+            ":D": "`"
+        }
+    }
+}
