@@ -4,6 +4,26 @@ from pyglet.window import mouse
 
 window = pyglet.window.Window()
 
+cursorImg = pyglet.image.ImageGrid(pyglet.image.load('assets/Cursors.png'), 2, 2)
+cursors = {
+    'normal': (cursorImg[2], (0, 16)),
+}
+
+SETTINGS = {
+    'cursor': 'normal',
+    'scale': 80
+}
+
+class Cursor(pyglet.window.MouseCursor):
+    def draw(self, x, y):
+        hot = cursors[SETTINGS['cursor']][1]
+        txture = cursors[SETTINGS['cursor']][0].get_texture()
+        txture.width = SETTINGS['scale']
+        txture.height = SETTINGS['scale']
+        txture.blit(x - hot[0], y - hot[1], 0)
+
+window.set_mouse_cursor(Cursor())
+
 @window.event
 def on_key_press(symbol, modifiers):
     if symbol == key.A:
