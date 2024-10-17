@@ -3,7 +3,7 @@
         "fname": "large.font.png",
         "chars": " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~",
         "replace": {},
-        "displacement": [0, 0]
+        "displacement": [-1, 0]
     },
     "Medium": {
         "fname": "medium.font.png",
@@ -21,6 +21,6 @@
             "`": "'",
             ":D": "`"
         },
-        "displacement": [-3, -2]
+        "displacement": [-4, -2]
     }
 }
