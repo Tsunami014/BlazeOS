@@ -34,7 +34,7 @@ while run:
 
     y = 0
     for f in (f1, f2, f3):
-        o = f.render('Hello! I am cool.', 6)
+        o = f.render('Hello!I am cool*:D', 6)
         win.blit(o, (0, y))
         y += o.get_height()
 
