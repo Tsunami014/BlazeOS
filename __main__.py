@@ -4,11 +4,14 @@ import pygame
 pygame.init()
 
 from utils.mouse import Mouse
+from utils.UI import UIBUTTONS
 
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("BlazeOS")
 
 mouse = Mouse()
+
+btn = UIBUTTONS['OK'].copy()
 
 run = True
 while run:
@@ -19,7 +22,10 @@ while run:
             run = False
 
     screen.fill((255, 255, 255))
-    pygame.draw.circle(screen, (0, 0, 255), (400, 300), 75)
+
+    mouse.changeMouseType('Normal')
+
+    btn.draw(screen, 400, 300)
 
     mouse.update(screen)
 

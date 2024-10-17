@@ -1,2 +1,2 @@
-pyglet
+pygame
 Blaze-Sudio
