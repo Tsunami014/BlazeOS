@@ -15,9 +15,13 @@ class Mouse:
     MOUSETYPE = "Normal"
 
     @classmethod
-    def MousePos(cls):
+    def WinMousePos(cls):
+        return Scaler.scalePos(pygame.mouse.get_pos())
+
+    @classmethod
+    def ScrnMousePos(cls):
         p = Scaler.scalePos(pygame.mouse.get_pos())
-        return (p[0]-1, p[1]-1)
+        return (p[0]-1, p[1]-9)
 
     @classmethod
     def changeMouseType(cls, new_type):
@@ -26,5 +30,5 @@ class Mouse:
     @classmethod
     def update(cls, win):
         if pygame.mouse.get_focused():
-            mp = cls.MousePos()
+            mp = cls.WinMousePos()
             win.blit(CURSORS[cls.MOUSETYPE][0], (mp[0]-CURSORS[cls.MOUSETYPE][1][0], mp[1]-CURSORS[cls.MOUSETYPE][1][1]))

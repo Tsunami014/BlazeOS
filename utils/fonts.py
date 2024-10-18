@@ -17,7 +17,7 @@ class Font:
         self.replaces = data['replace']
         self.displace = data['displacement']
     
-    def render(self, txt, max_width=None):
+    def render(self, txt, col, max_width=None):
         for rep, repWith in self.replaces.items():
             txt = txt.replace(rep, repWith)
 
@@ -39,4 +39,5 @@ class Font:
                 x = 0
                 y += 1
         
-        return sur
+        m = pygame.mask.from_surface(sur)
+        return m.to_surface(pygame.Surface(sur.get_size(), pygame.SRCALPHA), setcolor=col, unsetcolor=0)

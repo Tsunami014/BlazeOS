@@ -10,7 +10,7 @@ class Button:
         self.selectedSur = UI.subsurface((x*32, y*16+32, 32, 16))
     
     def draw(self, win, x, y):
-        selected = pygame.Rect(x, y, 32, 16).collidepoint(Mouse.MousePos())
+        selected = pygame.Rect(x, y, 32, 16).collidepoint(Mouse.ScrnMousePos())
         if selected:
             if pygame.mouse.get_pressed()[0]:
                 Mouse.changeMouseType("Clicking")
