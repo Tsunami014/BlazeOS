@@ -1,6 +1,5 @@
 import pygame
 from utils.mouse import Mouse
-from utils.scaling import Scaler
 
 UI = pygame.image.load("assets/UI.png")
 
@@ -12,11 +11,13 @@ class Button:
     def draw(self, win, x, y):
         selected = pygame.Rect(x, y, 32, 16).collidepoint(Mouse.ScrnMousePos())
         if selected:
-            if pygame.mouse.get_pressed()[0]:
+            if Mouse.PRESSTYP > 0:
                 Mouse.changeMouseType("Clicking")
                 selected = False
             else:
                 Mouse.changeMouseType("Click")
+            if Mouse.PRESSTYP == -1:
+                print("You clicked on the button!")
         win.blit(self.selectedSur if selected else self.sur, (x, y))
     
     def copy(self):

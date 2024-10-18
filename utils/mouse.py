@@ -13,6 +13,17 @@ CURSORS = {
 
 class Mouse:
     MOUSETYPE = "Normal"
+    PRESSTYP = 0
+    """The type of press
+
+    - `-1` = just released
+    - `0` = not pressed
+    - `1` = pressed
+    - `2` = just started pressing"""
+
+    @classmethod
+    def changePressType(cls, newPT):
+        cls.PRESSTYP = newPT
 
     @classmethod
     def WinMousePos(cls):

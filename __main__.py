@@ -21,11 +21,16 @@ btn = UIBUTTONS['OK'].copy()
 
 run = True
 while run:
+    Mouse.changePressType(1 if pygame.mouse.get_pressed()[0] else 0)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             run = False
+        elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+            Mouse.changePressType(-1)
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            Mouse.changePressType(2)
 
     screen.fill(0)
     win.fill(COLOURS['Inner'])

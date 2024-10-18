@@ -1,6 +1,7 @@
 import pygame
 
 from utils.fonts import Font
+from utils.mouse import Mouse
 
 IconImg = pygame.image.load('assets/Bar.png')
 ICONS = {
@@ -9,15 +10,32 @@ ICONS = {
     "Settings": IconImg.subsurface((16, 0, 8, 8)),
     "Page": IconImg.subsurface((16+8, 0, 8, 8)),
     "Menu": IconImg.subsurface((0, 8, 16, 8)),
+    "MenuPress": IconImg.subsurface((16, 8, 16, 8)),
 }
 
 MenuFont = Font('Small')
 
 class Bar:
+    MenuOpen = False
+
     @classmethod
     def draw(cls, win):
+        selected = pygame.Rect(0, 0, 16, 8).collidepoint(Mouse.WinMousePos())
+        if selected:
+            if Mouse.PRESSTYP > 0:
+                Mouse.changeMouseType("Clicking")
+                selected = False
+            else:
+                Mouse.changeMouseType("Click")
+        if Mouse.PRESSTYP == -1:
+            if selected:
+                print("You clicked on the title bar!")
+                cls.MenuOpen = not cls.MenuOpen
+            elif cls.MenuOpen:
+                cls.MenuOpen = False
+
         toDraw = [
-            ICONS['Menu'],
+            ICONS[['Menu', 'MenuPress'][cls.MenuOpen]],
             ICONS['Page'],
             MenuFont.render('Hello', (255, 255, 255))
         ]
