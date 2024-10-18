@@ -39,15 +39,28 @@ WSBtnNames = [
     "BinFull",
     "Workspace",
     "Floppy",
-    "IniFile"
+    # Files
+    "Ini",
+    "Text",
+    "Json",
+    "PNG",
+    "GIF",
+    "Colour",
+    "Sprite",
+    "Settings",
+    "Sound",
+    "Music",
+    "Fx",
+    "Font",
+    "Blocks"
 ]
 
 class WorkspaceBtn:
     def __init__(self, name):
         self.name = name
         idx = WSBtnNames.index(name)
-        self.sur = WSSur.subsurface((idx*32, 0, 32, 32))
-        self.selectedSur = WSSur.subsurface((idx*32, 32, 32, 32))
+        self.sur = WSSur.subsurface((16+idx*32, 0, 32, 32))
+        self.selectedSur = WSSur.subsurface((16+idx*32, 32, 32, 32))
         self.mask = pygame.mask.from_surface(self.selectedSur)
     
     def draw(self, win, x, y):
