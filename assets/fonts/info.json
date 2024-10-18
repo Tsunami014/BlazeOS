@@ -16,7 +16,7 @@
     },
     "Small": {
         "fname": "small.font.png",
-        "chars": " !\"#$%`'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_'abcdefghijklmnopqrstuvwxyz{|}~",
+        "chars": " !\"#$%`'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_'abcdefghijklmnopqrstuvwxyz{|}~^",
         "replace": {
             "`": "'",
             ":D": "`"
