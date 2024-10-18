@@ -35,7 +35,7 @@ class Bar:
             Ypadding = 2
             def Hrule():
                 s = pygame.Surface((menuW-Xpadding*2, 3), pygame.SRCALPHA)
-                s.fill(COLOURS['Inner'], (0, 1, menuW-Xpadding*2, 1))
+                s.fill(COLOURS['Inner'], (0, 2, menuW-Xpadding*2, 1))
                 return s
             
             defaultSelectAction = lambda: print("You selected an option!")

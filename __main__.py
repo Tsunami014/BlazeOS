@@ -7,7 +7,7 @@ from utils.bar import Bar
 from utils.mouse import Mouse
 from utils.scaling import Scaler
 from utils.fonts import Font
-from utils.UI import UIBUTTONS
+from utils.UI import UIBUTTONS, WorkspaceBtn
 from utils import COLOURS
 
 screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
@@ -18,6 +18,7 @@ f1 = Font('Large')
 f2 = Font('Medium')
 f3 = Font('Small')
 btn = UIBUTTONS['OK'].copy()
+btn2 = WorkspaceBtn('Workspace')
 
 run = True
 while run:
@@ -38,6 +39,7 @@ while run:
     Mouse.changeMouseType('Normal')
 
     btn.draw(win, 50, 50)
+    btn2.draw(win, 50, 70)
 
     y = 0
     for f in (f1, f2, f3):
