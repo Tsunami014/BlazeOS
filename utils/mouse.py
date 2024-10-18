@@ -9,10 +9,14 @@ CURSORS = {
     "Click": (CURSORIMGS.subsurface((16, 0, 16, 16)), (6, 2)),
     "Text": (CURSORIMGS.subsurface((0, 16, 16, 16)), (8, 8)),
     "Clicking": (CURSORIMGS.subsurface((16, 16, 16, 16)), (6, 2)),
+    "Loading": (pygame.image.load("assets/LoadingMouse.png"), (6, 7))
 }
 
 class Mouse:
     MOUSETYPE = "Normal"
+    LoadingFrame = 0
+    _LastLoaded = None
+    LoadingSpeed = 50
     PRESSTYP = 0
     """The type of press
 
@@ -41,5 +45,14 @@ class Mouse:
     @classmethod
     def update(cls, win):
         if pygame.mouse.get_focused():
+            if cls._LastLoaded != cls.MOUSETYPE:
+                cls._LastLoaded = cls.MOUSETYPE
+                cls.LoadingFrame = 0
             mp = cls.WinMousePos()
-            win.blit(CURSORS[cls.MOUSETYPE][0], (mp[0]-CURSORS[cls.MOUSETYPE][1][0], mp[1]-CURSORS[cls.MOUSETYPE][1][1]))
+            cur = CURSORS[cls.MOUSETYPE][0]
+            if cls.MOUSETYPE == "Loading":
+                cls.LoadingFrame += 1
+                if cls.LoadingFrame >= cur.get_width()//16*cls.LoadingSpeed:
+                    cls.LoadingFrame = 0
+                cur = cur.subsurface((cls.LoadingFrame//cls.LoadingSpeed*16, 0, 16, 16))
+            win.blit(cur, (mp[0]-CURSORS[cls.MOUSETYPE][1][0], mp[1]-CURSORS[cls.MOUSETYPE][1][1]))
