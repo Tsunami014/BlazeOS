@@ -13,10 +13,11 @@ class Scaler:
         return (pos[0] - cls.OFFSET[0]) // cls.SCALE, (pos[1] - cls.OFFSET[1]) // cls.SCALE
 
     @classmethod
-    def scale(cls, surf):
+    def scale(cls, surf, update_vals=True):
         sze = cls.winSze()
         scale = min(sze) / max(surf.get_size())
-        cls.SCALE = scale
+        if update_vals:
+            cls.SCALE = scale
         newSze = min(sze)
         leftOverAmnt = max(sze)-newSze
         if sze[0] >= sze[1]:

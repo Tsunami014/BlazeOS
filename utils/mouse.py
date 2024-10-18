@@ -5,10 +5,10 @@ pygame.mouse.set_visible(False)
 CURSORIMGS = pygame.image.load("assets/Cursors.png")
 
 CURSORS = {
-    "Normal": (CURSORIMGS.subsurface((0, 0, 16, 16)), (1, 1)),
-    "Click": (CURSORIMGS.subsurface((16, 0, 16, 16)), (6, 1)),
+    "Normal": (CURSORIMGS.subsurface((0, 0, 16, 16)), (1, 2)),
+    "Click": (CURSORIMGS.subsurface((16, 0, 16, 16)), (6, 2)),
     "Text": (CURSORIMGS.subsurface((0, 16, 16, 16)), (8, 8)),
-    "Clicking": (CURSORIMGS.subsurface((16, 16, 16, 16)), (6, 1)),
+    "Clicking": (CURSORIMGS.subsurface((16, 16, 16, 16)), (6, 2)),
 }
 
 class Mouse:
@@ -16,7 +16,8 @@ class Mouse:
 
     @classmethod
     def MousePos(cls):
-        return Scaler.scalePos(pygame.mouse.get_pos())
+        p = Scaler.scalePos(pygame.mouse.get_pos())
+        return (p[0]-1, p[1]-1)
 
     @classmethod
     def changeMouseType(cls, new_type):
