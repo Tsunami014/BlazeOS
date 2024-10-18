@@ -12,6 +12,7 @@ ICONS = {
     "Page": IconImg.subsurface((16+8, 0, 8, 8)),
     "Menu": IconImg.subsurface((0, 8, 16, 8)),
     "MenuPress": IconImg.subsurface((16, 8, 16, 8)),
+    "Folder": IconImg.subsurface((32, 0, 8, 8)),
 }
 
 MenuFont = Font('Small')
