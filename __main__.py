@@ -27,7 +27,7 @@ while run:
             run = False
 
     screen.fill(0)
-    win.fill((255, 255, 255))
+    win.fill(COLOURS['Inner'])
 
     Mouse.changeMouseType('Normal')
 
