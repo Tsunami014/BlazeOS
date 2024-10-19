@@ -1,7 +1,7 @@
 import pygame
 
 class Scaler:
-    SCALE = 1
+    SCALE = [1, 1]
     OFFSET = [0, 0]
 
     @staticmethod
@@ -10,14 +10,15 @@ class Scaler:
     
     @classmethod
     def scalePos(cls, pos):
-        return (pos[0] - cls.OFFSET[0]) // cls.SCALE, (pos[1] - cls.OFFSET[1]) // cls.SCALE
+        return (pos[0] - cls.OFFSET[0]) // cls.SCALE[0], (pos[1] - cls.OFFSET[1]) // cls.SCALE[1]
 
     @classmethod
     def scale(cls, surf):
         sze = cls.winSze()
-        scale = min(sze) / max(surf.get_size())
-        cls.SCALE = scale
         newSze = min(sze)
+
+        cls.SCALE = newSze / surf.get_width(), newSze / surf.get_height()
+
         leftOverAmnt = max(sze)-newSze
         if sze[0] >= sze[1]:
             leftOver = [leftOverAmnt, 0]
