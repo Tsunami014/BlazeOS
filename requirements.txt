@@ -1,2 +1,1 @@
-pygame
-Blaze-Sudio
+Blaze-Sudio[graphics]
